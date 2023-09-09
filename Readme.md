@@ -20,3 +20,7 @@ bcrypt
 jsonwebtoken 
 nodemailer 
 cookie-parser
+react-router-dom
+react-lottie
+react-icons
+country-state-city 
