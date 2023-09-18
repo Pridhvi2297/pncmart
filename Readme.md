@@ -1,5 +1,5 @@
 MERN Stack 
-Mongodb
+Mongodb for backend
 Express.JS
 React.JS
 Node.JS
@@ -24,3 +24,9 @@ react-router-dom
 react-lottie
 react-icons
 country-state-city 
+
+
+
+Mongodb
+Username: pncmart
+Password: pncmart
