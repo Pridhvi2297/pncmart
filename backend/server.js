@@ -4,7 +4,7 @@ const connectDatabase = require("./db/Database");
 
 
 process.on("uncaughtException", (err) => {
-    console.log(`Error: $(err.message)`);
+    console.log(`Error: ${err.message}`);
     console.log("Shutting down the server for uncaught Exception");
 })
 
@@ -23,7 +23,7 @@ const server = app.listen(process.env.PORT,() =>{
 
 
 process.on("unhandledRejection", (err) => {
-    console.log(`shutting down the server for $(err.message)`);
+    console.log(`shutting down the server for ${err.message}`);
     console.log(`shutting down the server for unhandle promise rejection`);
 
     server.close(() => {

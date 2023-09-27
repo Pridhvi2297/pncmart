@@ -1,23 +1,43 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import styles from "../../styles/style";
-import { Link } from "react-router-dom";
+import styles from "../../styles/styles";
+import { server } from "../../server";
+import { Link, useNavigate } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
+import axios from "axios";
+
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [visible, setVisible] = useState();
+  const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
-
-  const handelSubmit = () => {
-    console.log("ffff");
-  };
+  const navigate = useNavigate();
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     setAvatar(file);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+    const newForm = new FormData();
+
+    newForm.append("file", avatar);
+    newForm.append("name", name);
+    newForm.append("email", email);
+    newForm.append("password", password);
+    axios
+      .post(`${server}/user/create-user`, newForm, config)
+      .then((res) => {
+        alert(res.message);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
@@ -29,7 +49,7 @@ const Signup = () => {
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="email"
@@ -115,14 +135,22 @@ const Signup = () => {
                       className="h-full w-full object-cover rounded-full"
                     />
                   ) : (
-                    (<RxAvatar className="h-8 w-8" />)
+                    <RxAvatar className="h-8 w-8" />
                   )}
                 </span>
-                <label htmlFor="file-input" className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium  text-gray-700 bg-white hover:bg-gray-50">
-                  <span>
-                    Upload a file
-                  </span>
-                  <input type="file" name="avatar" id="file-input" accept=".jpg,.jpeg,.png" onChange={handleFileInputChange} className="sr-only" />
+                <label
+                  htmlFor="file-input"
+                  className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium  text-gray-700 bg-white hover:bg-gray-50"
+                >
+                  <span>Upload a file</span>
+                  <input
+                    type="file"
+                    name="avatar"
+                    id="file-input"
+                    accept=".jpg,.jpeg,.png"
+                    onChange={handleFileInputChange}
+                    className="sr-only"
+                  />
                 </label>
               </div>
             </div>
