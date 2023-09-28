@@ -5,7 +5,8 @@ import { server } from "../../server";
 import { Link } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import axios from "axios";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -32,10 +33,14 @@ const Signup = () => {
     axios
       .post(`${server}/user/create-user`, newForm, config)
       .then((res) => {
-        alert(res.message);
+        toast.success(res.data.message);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setAvatar("");
       })
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        toast.error(error.response.data.message);
       });
   };
 
@@ -47,7 +52,10 @@ const Signup = () => {
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
               Full Name
             </label>
             <input
@@ -61,7 +69,10 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
               Email address
             </label>
             <input
@@ -75,7 +86,10 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <div className="relative">
@@ -104,7 +118,10 @@ const Signup = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="avatar" className="block text-sm font-medium text-gray-700"></label>
+            <label
+              htmlFor="avatar"
+              className="block text-sm font-medium text-gray-700"
+            ></label>
             <div className="flex items-center">
               <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
                 {avatar ? (

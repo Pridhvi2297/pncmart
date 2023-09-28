@@ -1,22 +1,40 @@
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 //import styles from "../../styles/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { server } from "../../server";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Your login logic here
+
+    await axios
+      .post(
+        `${server}/user/login-user`,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        toast.success("Login Successfully!");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
   };
 
   return (
-    <div
-      className="min-h-screen bg-yellow-200 flex items-center justify-center"
-    >
+    <div className="min-h-screen bg-yellow-200 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-3xl font-extrabold text-gray-900 text-center">
           Sign in to your account
@@ -107,7 +125,10 @@ const Login = () => {
         <div className="w-full text-center mt-4">
           <p className="text-base">
             New customer?{" "}
-            <Link to="/signup" className=" text-yellow-500 hover:text-yellow-600">
+            <Link
+              to="/signup"
+              className=" text-yellow-500 hover:text-yellow-600"
+            >
               Start here.
             </Link>
           </p>
