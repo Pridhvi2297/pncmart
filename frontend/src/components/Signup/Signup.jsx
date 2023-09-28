@@ -159,7 +159,7 @@ const Signup = () => {
             </button>
           </div>
           <div className="w-full text-center mt-4">
-            <span className="text-gray-700">Already a member?</span>{" "}
+            <span className="text-gray-700">Already have an account?</span>{" "}
             <Link to="/login" className="text-yellow-500 hover:text-yellow-600">
               Sign In Here
             </Link>

@@ -37,7 +37,7 @@ const Login = () => {
     <div className="min-h-screen bg-yellow-200 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-3xl font-extrabold text-gray-900 text-center">
-          Sign in to your account
+          Sign in
         </h2>
         <form className="mt-6" onSubmit={handleLogin}>
           <div>
@@ -45,7 +45,7 @@ const Login = () => {
               htmlFor="email"
               className="block text-base font-medium text-gray-700"
             >
-              Email address
+              Email
             </label>
             <input
               type="email"
@@ -124,12 +124,12 @@ const Login = () => {
         </form>
         <div className="w-full text-center mt-4">
           <p className="text-base">
-            New customer?{" "}
+            New User? {" "}
             <Link
               to="/signup"
               className=" text-yellow-500 hover:text-yellow-600"
             >
-              Start here.
+              Create your pncmart account
             </Link>
           </p>
         </div>

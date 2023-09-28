@@ -4,19 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoginPage, SignupPage, ActivationPage } from "./Routes.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { server } from "./server";
-import axios from "axios";
+import Store from "./redux/store";
+import { loadUser } from "./redux/actions/user";
 
 const App = () => {
   useEffect(() => {
-    axios
-      .get(`${server}/user/getuser`, {withCredentials: true})
-      .then((res) => {
-        toast.success(res.data.message);
-      })
-      .catch((err) => {
-        toast.error(err.response.data.message);
-      });
+    Store.dispatch(loadUser());
   }, []);
 
   return (
