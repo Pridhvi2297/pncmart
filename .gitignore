@@ -12,6 +12,10 @@
 /build
 
 # misc
+<<<<<<< HEAD
+=======
+.env
+>>>>>>> 88768a9 (added styling)
 .DS_Store
 .env.local
 .env.development.local

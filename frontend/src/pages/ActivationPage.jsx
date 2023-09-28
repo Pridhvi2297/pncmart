@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { server } from "../server";
 
@@ -11,36 +10,41 @@ const ActivationPage = () => {
   useEffect(() => {
     if (activation_token) {
       const sendRequest = async () => {
-        await axios
-          .post(`${server}/user/activation`, {
+        try {
+          const response = await axios.post(`${server}/user/activation`, {
             activation_token,
-          })
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((err) => {
-            setError(true);
           });
+          console.log(response.data);
+        } catch (err) {
+          setError(true);
+        }
       };
       sendRequest();
     }
   }, []);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {error ? (
-        <p>Your token is expired!</p>
-      ) : (
-        <p>Your account has been created suceessfully!</p>
-      )}
+    <div className="min-h-screen flex items-center justify-center bg-blue-50">
+      <div className="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+        {error ? (
+          <p className="text-red-500 text-center font-semibold text-lg">
+            Your token is expired!
+          </p>
+        ) : (
+          <>
+            <p className="text-green-500 text-center font-semibold text-lg mb-4">
+              Your account has been created successfully!
+            </p>
+            <div className="text-center">
+              <img
+                src={`${process.env.PUBLIC_URL}/success.gif`}
+                alt="Success Notification"
+                className="w-50 h-30 mx-auto"
+              />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
