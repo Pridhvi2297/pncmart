@@ -1,72 +1,104 @@
-import React, { useState } from "react";
-import styles from "../../styles/styles";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { categoriesData, productData } from "../static/data.js";
-import { AiOutlineSearch } from "react-icons/ai";
-import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
-import { BiMenuAltLeft } from "react-icons/bi";
+import { categoriesData, productData } from "../static/data";
+import {
+  AiOutlineSearch,
+  AiOutlineHeart,
+  AiOutlineShoppingCart,
+  AiOutlineUser,
+  AiOutlineShop,
+} from "react-icons/ai";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 
-const Header = () => {
+const Header = ({ activeHeading }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState({
+    top: 0,
+    left: 0,
+  });
+  const searchRef = useRef(null);
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    const filteredProducts = productData.filter((product) =>
-      product.name.toLowerCase().includes(term.toLowerCase())
-    );
-    setSearchData(filteredProducts);
+    if (term === "") {
+      setSearchData(null);
+    } else {
+      const filteredProducts = productData.filter((product) =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      );
+      setSearchData(filteredProducts);
+    }
   };
 
-  window.addEventListener("scroll", () => {
-    if (window.screenY > 70) {
-      setActive(true);
-    } else {
-      setActive(false);
+  const adjustDropdownPosition = () => {
+    if (searchRef.current) {
+      const searchRect = searchRef.current.getBoundingClientRect();
+      setDropdownPosition({
+        top: searchRect.bottom + window.scrollY,
+        left: searchRect.left + window.scrollX,
+      });
     }
-  });
+  };
+
+  useEffect(() => {
+    adjustDropdownPosition();
+    window.addEventListener("scroll", adjustDropdownPosition);
+    return () => {
+      window.removeEventListener("scroll", adjustDropdownPosition);
+    };
+  }, []);
 
   return (
     <>
-      <div className={`${styles.section}`}>
-        <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
+      <div className="bg-gray-900 py-4">
+        <div className="container mx-auto flex items-center justify-between">
           <div>
             <Link to="/">
-              <img src="/logo.png" alt="pnc mart" />
+              <img src="/logo.png" alt="pnc mart" className="h-10 w-60" />
             </Link>
           </div>
-          {}
-          <div className="w-[50%] relative">
+          <div className="w-[50%] relative flex items-center" ref={searchRef}>
             <input
               type="text"
               placeholder="Search Pnc Mart"
               value={searchTerm}
               onChange={handleSearchChange}
-              className="h-[40px] w-full px-2 border-[#3957db] border-[2p] rounded-md"
+              className="h-[40px] w-full px-4 border border-gray-500 rounded-md focus:ring focus:ring-gray-200 text-white bg-gray-800"
+              style={{ color: "#fff" }} // Adjust text color here
             />
-            <AiOutlineSearch
-              size={30}
-              className="absolute right-2 top-1.5 cursor-pointer"
-            />
+            <div
+              className="absolute right-2 top-1.5 text-white"
+              style={{ zIndex: 1 }}
+            >
+              <AiOutlineSearch size={30} />
+            </div>
             {searchData && searchData.length !== 0 ? (
-              <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9 p-4">
+              <div
+                className="absolute bg-gray-800 shadow-md z-50 w-full mt-1"
+                style={{
+                  top: "calc(100% + 10px)", // Position below the search bar
+                  left: "50%", // Centered horizontally
+                  transform: "translateX(-50%)", // Centered horizontally
+                }}
+              >
                 {searchData.map((product, index) => {
                   const productName = product.name.replace(/\s+/g, "-");
                   return (
                     <Link to={`/product/${productName}`} key={index}>
-                      <div className="w-full flex items-start-py-3">
+                      <div className="w-full flex items-start py-3 text-white">
                         <img
                           src={product.image_Url[0].url}
                           alt=""
-                          className="w-[40px] h-[40px] mr-[10px]"
+                          className="w-12 h-12 mr-2 rounded-md"
                         />
-                        <h1>{product.name}</h1>
+                        <h1 className="text-gray-300">{product.name}</h1>
                       </div>
                     </Link>
                   );
@@ -74,10 +106,10 @@ const Header = () => {
               </div>
             ) : null}
           </div>
-          <div className={`${styles.button}`}>
+          <div className="bg-yellow-400 py-2 px-4 rounded-md">
             <Link to="/seller">
-              <h1 className="text-[#fff] flex items-center">
-                Become a Seller <IoIosArrowForward className="ml-1" />
+              <h1 className="text-black flex items-center">
+                Sell on Pnc Mart <IoIosArrowForward className="ml-1" />
               </h1>
             </Link>
           </div>
@@ -86,31 +118,50 @@ const Header = () => {
       <div
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px]`}
+        } transition bg-gray-900 hidden md:flex items-center justify-between w-full h-[70px]`}
       >
-        <div
-          className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
-        >
-          {}
-          <div onClick={() => setDropDown(!dropDown)}>
-            <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block">
-              <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
-              <button
-                className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md`}
-              >
+        <div className="container mx-auto">
+          <div className="relative flex items-center justify-between">
+            <div
+              className="relative h-0 mt-4 w-[16.9rem] hidden md:block cursor-pointer"
+              onClick={() => setDropDown(!dropDown)}
+            >
+              <div className="flex items-center justify-between pl-4 bg-white font-sans text-lg font-[500] select-none">
                 All Categories
-              </button>
-              <IoIosArrowDown
-                size={20}
-                className="absolute right-2 top-4 cursor-pointer"
-                onClick={() => setDropDown(!dropDown)}
-              />
-              {dropDown ? (
-                <DropDown
-                  categoriesData={categoriesData}
-                  setDropDown={setDropDown}
+                <IoIosArrowDown
+                  size={20}
+                  className={`${
+                    dropDown ? "transform rotate-180" : ""
+                  } transition-transform duration-300 text-gray-900`}
                 />
-              ) : null}
+              </div>
+                {/* Render categories as list items with icons */}
+                {dropDown ? (
+                  <DropDown
+                    categoriesData={categoriesData}
+                    setDropDown={setDropDown}
+                  />
+                ) : null}
+              </div>
+            <div className="flex items-center space-x-5 text-white">
+              <Navbar active={activeHeading} />
+              <div className="relative cursor-pointer">
+                <AiOutlineHeart size={30} />
+                <span className="absolute top-0 right-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                  0
+                </span>
+              </div>
+              <div className="relative cursor-pointer">
+                <AiOutlineShoppingCart size={30} />
+                <span className="absolute top-0 right-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                  0
+                </span>
+              </div>
+              <div className="relative cursor-pointer">
+                <Link to="/login">
+                  <AiOutlineUser size={30} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
