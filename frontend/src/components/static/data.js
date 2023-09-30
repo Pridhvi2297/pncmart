@@ -194,69 +194,69 @@ export const navItems = [
       title: "Computers and Laptops",
       subTitle: "",
       image_Url:
-        "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
+        "https://i.gadgets360cdn.com/products/large/alienware-x16-db-1094x800-1672745144.jpg",
     },
     {
       id: 2,
-      title: "cosmetics and body care",
+      title: "Beauty",
       subTitle: "",
       image_Url:
-        "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
+        "https://www.sciencenews.org/wp-content/uploads/2021/06/061521_mt_cosmetics_feat.jpg",
     },
     {
       id: 3,
-      title: "Accesories",
+      title: "Style & Accessories",
       subTitle: "",
       image_Url:
-        "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
+        "https://bobbysfashions.com/wp-content/uploads/2018/05/Style-Accessories-for-Men.jpg",
     },
     {
       id: 4,
-      title: "Cloths",
+      title: "Clothing",
       subTitle: "",
       image_Url:
-        "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
+        "https://cdn.shopify.com/s/files/1/0558/6413/1764/files/1_fbf588ca-9895-416a-874e-52892263d917_1024x1024.png",
     },
     {
       id: 5,
       title: "Shoes",
       subTitle: "",
       image_Url:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
+        "https://lajolla.com/wp-content/uploads/2022/01/Best-Shoe-Stores-San-Diego-1024x576.jpg",
     },
     {
       id: 6,
-      title: "Gifts",
+      title: "Gifting",
       subTitle: "",
       image_Url:
-        "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+        "https://cdn.thewirecutter.com/wp-content/media/2021/12/christmasgifts-2048px-1287618519-3x2-1.jpg",
     },
     {
       id: 7,
-      title: "Pet Care",
+      title: "Pet Supplies",
       subTitle: "",
-      image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+      image_Url: "https://i0.wp.com/mypetnutritionist.com/wp-content/uploads/2023/02/6295ff0be5bbeec3bf693a91_resized-image-Promo-14.jpeg",
     },
     {
       id: 8,
-      title: "Mobile and Tablets",
+      title: "Electronics",
       subTitle: "",
       image_Url:
-        "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
+        "https://www.macworld.com/wp-content/uploads/2023/05/verizon-deal-post.jpg",
     },
     {
       id: 9,
-      title: "Music and Gaming",
+      title: "Music & Games",
       subTitle: "",
       image_Url:
-        "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+        "https://www.blitzwolfeurope.com/shop_ordered/90562/pic/gtk0/blitzwolf-bw-gtk0-gamer-fejhallgato-tarto-w07.jpg",
     },
     {
       id: 10,
-      title: "Others",
+      title: "Books & Originals",
       subTitle: "",
       image_Url:
-        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+        "https://cdn.create.vista.com/api/media/small/38411117/stock-photo-books-in-library-room",
     },
   ];
   
@@ -294,7 +294,7 @@ export const navItems = [
     },
     {
       id: 2,
-      category:"Mobile and Tablets",
+      category:"Electronics",
       name: "Iphone 14 pro max 256 gb ssd and 8 gb ram silver colour",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -355,7 +355,7 @@ export const navItems = [
     },
     {
       id: 4,
-      category:"Others",
+      category:"Books & Originals",
       name: "New Fashionable Watch for men 2023 with multiple colors",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -376,7 +376,7 @@ export const navItems = [
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
         },
         ratings: 4.2,
-      category:"Others"
+      category:"Books & Originals"
       },
       price: 100,
       discount_price: 79,
@@ -452,7 +452,7 @@ export const navItems = [
       ],
       total_sell: 20,
       stock: 10,
-      category:"Music and Gaming"
+      category:"Music & Games"
     },
     {
       id: 4,
@@ -523,7 +523,7 @@ export const navItems = [
     },
     {
       id: 2,
-      category:"Mobile and Tablets",
+      category:"Electronics",
       name: "Iphone 14 pro max 256 gb ssd and 8 gb ram silver colour",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -552,7 +552,7 @@ export const navItems = [
     },
     {
       id: 1,
-      category:"Music and Gaming",
+      category:"Music & Games",
       name: "Gaming Headphone Asus with mutiple color and free delivery",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",

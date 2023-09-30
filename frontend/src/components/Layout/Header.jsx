@@ -61,7 +61,7 @@ const Header = ({ activeHeading }) => {
         <div className="container mx-auto flex items-center justify-between">
           <div>
             <Link to="/">
-              <img src="/logo.png" alt="pnc mart" className="h-10 w-60" />
+              <img src="/Logo.png" alt="pnc mart" className="h-16 w-full" />
             </Link>
           </div>
           <div className="w-[50%] relative flex items-center" ref={searchRef}>
@@ -106,9 +106,9 @@ const Header = ({ activeHeading }) => {
               </div>
             ) : null}
           </div>
-          <div className="bg-yellow-400 py-2 px-4 rounded-md">
+          <div className="bg-gray-400 py-2 px-4 rounded-md">
             <Link to="/seller">
-              <h1 className="text-black flex items-center">
+              <h1 className="text-white flex items-center">
                 Sell on Pnc Mart <IoIosArrowForward className="ml-1" />
               </h1>
             </Link>
@@ -123,16 +123,16 @@ const Header = ({ activeHeading }) => {
         <div className="container mx-auto">
           <div className="relative flex items-center justify-between">
             <div
-              className="relative h-0 mt-4 w-[16.9rem] hidden md:block cursor-pointer"
+              className="relative h-5 mt-4 w-[16.9rem] hidden md:block cursor-pointer"
               onClick={() => setDropDown(!dropDown)}
             >
-              <div className="flex items-center justify-between pl-4 bg-white font-sans text-lg font-[500] select-none">
+              <div className="flex items-center justify-between pl-4 bg-gray-400 font-sans text-lg font-[500] select-none rounded-none">
                 All Categories
                 <IoIosArrowDown
                   size={20}
                   className={`${
                     dropDown ? "transform rotate-180" : ""
-                  } transition-transform duration-300 text-gray-900`}
+                  } transition-transform duration-300 text-gray-900 `}
                 />
               </div>
                 {/* Render categories as list items with icons */}
