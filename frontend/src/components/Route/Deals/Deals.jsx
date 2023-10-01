@@ -14,10 +14,10 @@ const Deals = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-6">
+    <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white py-12">
       <div className="container mx-auto">
-        <h1 className="text-6xl font-bold text-center text-black shadow-lg mb-8">
-        Explore Exciting Deals
+        <h1 className="text-4xl md:text-6xl font-semibold text-center text-black mb-8">
+          Explore Exciting Deals
         </h1>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
           {data.map((item, index) => (
