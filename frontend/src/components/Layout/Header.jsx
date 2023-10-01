@@ -49,15 +49,27 @@ const Header = ({ activeHeading }) => {
 
   useEffect(() => {
     adjustDropdownPosition();
-    window.addEventListener("scroll", adjustDropdownPosition);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", adjustDropdownPosition);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  };
+
   return (
     <>
-      <div className="bg-gray-900 py-4">
+      <div
+        className={`bg-gray-900 py-4 ${
+          active ? "top-0 left-0 z-10" : ""
+        }`}
+      >
         <div className="container mx-auto flex items-center justify-between">
           <div>
             <Link to="/">
@@ -106,7 +118,24 @@ const Header = ({ activeHeading }) => {
               </div>
             ) : null}
           </div>
-          <div className="bg-gray-400 py-2 px-4 rounded-md">
+          <div className="relative cursor-pointerflex items-center space-x-5 text-white">
+            <AiOutlineHeart size={30} />
+            <span className="absolute top-0 right-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+              0
+            </span>
+          </div>
+          <div className="relative cursor-pointer flex items-center space-x-5 text-white">
+            <AiOutlineShoppingCart size={30} />
+            <span className="absolute top-0 right-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+              0
+            </span>
+          </div>
+          <div className="relative cursor-pointer flex items-center space-x-5 text-white">
+            <Link to="/login">
+              <AiOutlineUser size={30} />
+            </Link>
+          </div>
+          <div className="bg-gray-400 py-3 px-4 rounded-md">
             <Link to="/seller">
               <h1 className="text-white flex items-center">
                 Sell on Pnc Mart <IoIosArrowForward className="ml-1" />
@@ -117,7 +146,7 @@ const Header = ({ activeHeading }) => {
       </div>
       <div
         className={`${
-          active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
+          active === true ? "fixed shadow-sm top-0 left-0 z-10" : null
         } transition bg-gray-900 hidden md:flex items-center justify-between w-full h-[70px]`}
       >
         <div className="container mx-auto">
@@ -135,33 +164,16 @@ const Header = ({ activeHeading }) => {
                   } transition-transform duration-300 text-gray-900 `}
                 />
               </div>
-                {/* Render categories as list items with icons */}
-                {dropDown ? (
-                  <DropDown
-                    categoriesData={categoriesData}
-                    setDropDown={setDropDown}
-                  />
-                ) : null}
-              </div>
+              {/* Render categories as list items with icons */}
+              {dropDown ? (
+                <DropDown
+                  categoriesData={categoriesData}
+                  setDropDown={setDropDown}
+                />
+              ) : null}
+            </div>
             <div className="flex items-center space-x-5 text-white">
               <Navbar active={activeHeading} />
-              <div className="relative cursor-pointer">
-                <AiOutlineHeart size={30} />
-                <span className="absolute top-0 right-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                  0
-                </span>
-              </div>
-              <div className="relative cursor-pointer">
-                <AiOutlineShoppingCart size={30} />
-                <span className="absolute top-0 right-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                  0
-                </span>
-              </div>
-              <div className="relative cursor-pointer">
-                <Link to="/login">
-                  <AiOutlineUser size={30} />
-                </Link>
-              </div>
             </div>
           </div>
         </div>
