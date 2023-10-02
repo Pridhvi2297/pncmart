@@ -4,7 +4,7 @@ import ProductCard from "../ProductCard/ProductCard";
 
 const BestSellers = () => {
   return (
-    <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white py-6">
+    <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white py-4">
       <div className="container mx-auto">
         <h1 className="text-4xl md:text-6xl font-semibold text-center text-black mb-8">
           Best Selling Products
