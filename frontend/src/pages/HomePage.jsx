@@ -4,6 +4,7 @@ import Hero from "../components/Route/Hero/Hero";
 import Categories from "../components/Route/Categories/Categories";
 import Deals from "../components/Route/Deals/Deals";
 import BestSellers from "../components/Route/BestSellers/BestSellers";
+import TodaysDeal from "../components/TodaysDeal/TodaysDeal";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
         <Hero />
         <Categories />
         <Deals />
+        <TodaysDeal /> {/*Events*/}
         <BestSellers /> {/*FeaturedProducts*/}
     </div>
   )
