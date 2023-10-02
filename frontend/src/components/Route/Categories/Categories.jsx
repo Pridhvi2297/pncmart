@@ -9,6 +9,10 @@ const Categories = () => {
     <div className="bg-gray-100 py-6">
       <div className="container mx-auto">
         {/* Categories Section */}
+
+        <h1 className="text-4xl md:text-6xl font-semibold text-center text-black mb-8">
+          Shop By Category
+        </h1>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {categoriesData.map((category) => (
             <div
@@ -29,14 +33,14 @@ const Categories = () => {
         </div>
 
         {/* Branding Section */}
-        <div className="py-6">
+        <div className="py-4">
+          <h1 className="text-4xl md:text-6xl font-semibold text-center text-black mb-8">
+            Our Commitment
+          </h1>
           <div className="flex flex-wrap justify-between items-center -mx-4">
             {brandingData.map((item, index) => (
-              <div
-                key={index}
-                className="w-full md:w-1/2 lg:w-1/3 px-4 mb-6"
-              >
-                <div className="bg-blue-200 p-6 rounded-lg shadow-md">
+              <div key={index} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
+                <div className="bg-blue-200 p-3 rounded-lg shadow-md">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
                       {item.icon}

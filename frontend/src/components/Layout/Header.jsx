@@ -6,7 +6,6 @@ import {
   AiOutlineHeart,
   AiOutlineShoppingCart,
   AiOutlineUser,
-  AiOutlineShop,
 } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import DropDown from "./DropDown";
@@ -156,7 +155,7 @@ const Header = ({ activeHeading }) => {
               onClick={() => setDropDown(!dropDown)}
             >
               <div className="flex items-center justify-between pl-4 bg-gray-400 font-sans text-lg font-[500] select-none rounded-none">
-                All Categories
+              Shop By Category
                 <IoIosArrowDown
                   size={20}
                   className={`${

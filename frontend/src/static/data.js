@@ -5,7 +5,7 @@ export const navItems = [
       url: "/",
     },
     {
-      title: "Best Selling",
+      title: "Best Sellers",
       url: "/best-selling",
     },
     {
@@ -13,7 +13,7 @@ export const navItems = [
       url: "/products",
     },
     {
-      title: "Events",
+      title: "Today's Deals",
       url: "/events",
     },
     {
@@ -135,7 +135,7 @@ export const navItems = [
     },
     {
       id: 6,
-      title: "Gifting",
+      title: "Birthday storeing",
       subTitle: "",
       image_Url:
         "https://cdn.thewirecutter.com/wp-content/media/2021/12/christmasgifts-2048px-1287618519-3x2-1.jpg",
@@ -534,7 +534,7 @@ export const navItems = [
       name: "Sport Watches",
     },
     {
-      name: "Events",
+      name: "Today's Deals",
     },
   ];
   
