@@ -10,8 +10,11 @@ import {
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
+import { useSelector } from "react-redux";
+import { backend_url } from "../../server";
 
 const Header = ({ activeHeading }) => {
+  const { isAuthenticated, user, loading } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
@@ -64,11 +67,7 @@ const Header = ({ activeHeading }) => {
 
   return (
     <>
-      <div
-        className={`bg-gray-900 py-4 ${
-          active ? "top-0 left-0 z-10" : ""
-        }`}
-      >
+      <div className={`bg-gray-900 py-4 ${active ? "top-0 left-0 z-10" : ""}`}>
         <div className="container mx-auto flex items-center justify-between">
           <div>
             <Link to="/">
@@ -130,9 +129,19 @@ const Header = ({ activeHeading }) => {
             </span>
           </div>
           <div className="relative cursor-pointer flex items-center space-x-5 text-white">
-            <Link to="/login">
-              <AiOutlineUser size={30} />
-            </Link>
+            {isAuthenticated ? (
+              <Link to="/profile">
+                <img
+                  src={`${backend_url}${user.avatar}`}
+                  className="w-[40px] h-[45px] rounded-full"
+                  alt=""
+                />
+              </Link>
+            ) : (
+              <Link to="/login">
+                <AiOutlineUser size={30} />
+              </Link>
+            )}
           </div>
           <div className="bg-gray-400 py-3 px-4 rounded-md">
             <Link to="/seller">
@@ -155,7 +164,7 @@ const Header = ({ activeHeading }) => {
               onClick={() => setDropDown(!dropDown)}
             >
               <div className="flex items-center justify-between pl-4 bg-gray-400 font-sans text-lg font-[500] select-none rounded-none">
-              Shop By Category
+                Shop By Category
                 <IoIosArrowDown
                   size={20}
                   className={`${
