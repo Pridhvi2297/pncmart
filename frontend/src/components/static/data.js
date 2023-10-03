@@ -6,7 +6,7 @@ export const navItems = [
     },
     {
       title: "Best Sellers",
-      url: "/best-selling",
+      url: "/best-sellers",
     },
     {
       title: "Products",
@@ -14,7 +14,7 @@ export const navItems = [
     },
     {
       title: "Today's Deals",
-      url: "/events",
+      url: "/todaysDeals",
     },
     {
       title: "FAQ",
@@ -191,21 +191,21 @@ export const navItems = [
   export const categoriesData = [
     {
       id: 1,
-      title: "Computers and Laptops",
+      title: "Computers and Accessories",
       subTitle: "",
       image_Url:
         "https://i.gadgets360cdn.com/products/large/alienware-x16-db-1094x800-1672745144.jpg",
     },
     {
       id: 2,
-      title: "Beauty",
+      title: "Fashion",
       subTitle: "",
       image_Url:
         "https://www.sciencenews.org/wp-content/uploads/2021/06/061521_mt_cosmetics_feat.jpg",
     },
     {
       id: 3,
-      title: "Style & Accessories",
+      title: "Style and Accessories",
       subTitle: "",
       image_Url:
         "https://bobbysfashions.com/wp-content/uploads/2018/05/Style-Accessories-for-Men.jpg",
@@ -246,14 +246,14 @@ export const navItems = [
     },
     {
       id: 9,
-      title: "Music & Games",
+      title: "Music and Games",
       subTitle: "",
       image_Url:
         "https://www.blitzwolfeurope.com/shop_ordered/90562/pic/gtk0/blitzwolf-bw-gtk0-gamer-fejhallgato-tarto-w07.jpg",
     },
     {
       id: 10,
-      title: "Books & Originals",
+      title: "Books and Originals",
       subTitle: "",
       image_Url:
         "https://cdn.create.vista.com/api/media/small/38411117/stock-photo-books-in-library-room",
@@ -264,7 +264,7 @@ export const navItems = [
   export const productData = [
     {
       id: 1,
-      category:"Computers and Laptops",
+      category:"Computers and Accessories",
       name: "MacBook pro M2 chipset 256gb ssd 8gb ram space-gray color with apple 1 year warranty",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -355,7 +355,7 @@ export const navItems = [
     },
     {
       id: 4,
-      category:"Books & Originals",
+      category:"Books and Originals",
       name: "New Fashionable Watch for men 2023 with multiple colors",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -376,7 +376,7 @@ export const navItems = [
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
         },
         ratings: 4.2,
-      category:"Books & Originals"
+      category:"Books and Originals"
       },
       price: 100,
       discount_price: 79,
@@ -452,7 +452,7 @@ export const navItems = [
       ],
       total_sell: 20,
       stock: 10,
-      category:"Music & Games"
+      category:"Music and Games"
     },
     {
       id: 4,
@@ -552,7 +552,7 @@ export const navItems = [
     },
     {
       id: 1,
-      category:"Music & Games",
+      category:"Music and Games",
       name: "Gaming Headphone Asus with mutiple color and free delivery",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",

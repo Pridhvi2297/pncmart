@@ -1,9 +1,9 @@
 import React from "react";
 import DealsTime from "./DealsTime";
 
-const ExclusiveDealsCard = () => {
+const ExclusiveDealsCard = ({active}) => {
   return (
-    <div className="bg-white rounded-lg lg:flex p-2 mb-6">
+    <div className={`bg-white rounded-lg ${active ? "unset" : "mb-12"} lg:flex p-2`}>
       <div className="lg:w-1/2 m-auto">
         <img
           src="https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg"
