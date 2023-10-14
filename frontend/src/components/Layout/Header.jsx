@@ -12,6 +12,8 @@ import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
+import Cart from "../cart/Cart";
+import Wishlist from "../Wishlist/Wishlist";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user, loading } = useSelector((state) => state.user);
@@ -24,6 +26,8 @@ const Header = ({ activeHeading }) => {
     left: 0,
   });
   const searchRef = useRef(null);
+  const [openCart, setOpenCart] = useState(false);
+  const [openWishlist, setOpenWishlist] = useState(false);
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
@@ -122,7 +126,7 @@ const Header = ({ activeHeading }) => {
               0
             </span>
           </div>
-          <div className="relative cursor-pointer flex items-center space-x-5 text-white">
+          <div className="relative cursor-pointer flex items-center space-x-5 text-white" onClick={() => setOpenCart(true)}>
             <AiOutlineShoppingCart size={30} />
             <span className="absolute top-0 right-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
               0
@@ -150,6 +154,10 @@ const Header = ({ activeHeading }) => {
               </h1>
             </Link>
           </div>
+
+          {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
+
+          {openWishlist ? <Wishlist setOpenWishlist={setOpenWishlist} /> : null}
         </div>
       </div>
       <div

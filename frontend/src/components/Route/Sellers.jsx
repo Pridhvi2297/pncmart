@@ -37,7 +37,7 @@ const Sellers = () => {
           />
           <img
             src="https://www.vectorlogo.zone/logos/apple/apple-ar21.png"
-            alt="Apple"
+            alt="Apple Inc."
             style={{
               width: "150px",
               maxHeight: "100px",
@@ -91,7 +91,7 @@ const Sellers = () => {
           />
           <img
             src="https://www.vectorlogo.zone/logos/apple/apple-ar21.png"
-            alt="Apple"
+            alt="Apple Inc."
             style={{
               width: "150px",
               maxHeight: "100px",

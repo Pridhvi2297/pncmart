@@ -1,3 +1,6 @@
+import React from "react";
+import { GiSunRadiations, GiFactory, GiSwordInStone, GiBank, GiPiggyBank, GiMailbox, GiFeather, GiSafetyPin, GiWhistle } from "react-icons/gi";
+
 // navigation Data
 export const navItems = [
     {
@@ -28,79 +31,65 @@ export const navItems = [
       id: 1,
       title: "Daily Deals",
       description: "Save up to 25%",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="64"
-          height="64"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-16 h-16 text-yellow-500"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-      ),
+      icon: <GiSunRadiations className="w-16 h-16 text-yellow-500" />,
     },
     {
       id: 2,
       title: "Affordable Prices",
       description: "Factory Direct Prices",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="64"
-          height="64"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-16 h-16 text-yellow-500"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-          />
-        </svg>
-      ),
+      icon: <GiFactory className="w-16 h-16 text-yellow-500" />,
     },
     {
       id: 3,
       title: "Secure Payments",
       description: "100% Protected Payments",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="64"
-          height="64"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-16 h-16 text-yellow-500"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M22 12h-4l-3 9L9 3l-3 9H2"
-          />
-        </svg>
-      ),
+      icon: <GiSwordInStone className="w-16 h-16 text-yellow-500" />,
+    },
+    {
+      id: 4,
+      title: "Quality Products",
+      description: "Top-notch Quality",
+      icon: <GiBank className="w-16 h-16 text-yellow-500" />,
+    },
+    {
+      id: 5,
+      title: "Savings Account",
+      description: "Start Saving Today",
+      icon: <GiPiggyBank className="w-16 h-16 text-yellow-500" />,
+    },
+    {
+      id: 6,
+      title: "Fast Shipping",
+      description: "Quick Delivery",
+      icon: <GiMailbox className="w-16 h-16 text-yellow-500" />,
+    },
+    {
+      id: 7,
+      title: "Easy Returns",
+      description: "Hassle-free Returns",
+      icon: <GiFeather className="w-16 h-16 text-yellow-500" />,
+    },
+    {
+      id: 8,
+      title: "Safety First",
+      description: "Your Safety Matters",
+      icon: <GiSafetyPin className="w-16 h-16 text-yellow-500" />,
+    },
+    {
+      id: 9,
+      title: "Customer Support",
+      description: "24/7 Customer Service",
+      icon: <GiWhistle className="w-16 h-16 text-yellow-500" />,
     },
   ];
   
   
+
   // categories data
   export const categoriesData = [
     {
       id: 1,
-      title: "Computers and Accessories",
+      title: "Computers",
       subTitle: "",
       image_Url:
         "https://i.gadgets360cdn.com/products/large/alienware-x16-db-1094x800-1672745144.jpg",
@@ -173,22 +162,22 @@ export const navItems = [
   export const productData = [
     {
       id: 1,
-      category:"Computers and Accessories",
+      category:"Computers",
       name: "MacBook pro M2 chipset 256gb ssd 8gb ram space-gray color with apple 1 year warranty",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
         },
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
         },
       ],
       shop: {
-        name: "Apple inc.",
+        name: "Apple Inc.",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
@@ -210,11 +199,11 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg",
+          url: "https://xn----8sb1bezcm.xn--p1ai/resources/01/500/400/76/16/dd5f3b4e-2a06-4b1c-be4f-1c5b60c58b62.jpg",
         },
         {
           public_id: "test",
-          url: "https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg",
+          url: "https://xn----8sb1bezcm.xn--p1ai/resources/01/500/400/76/16/dd5f3b4e-2a06-4b1c-be4f-1c5b60c58b62.jpg",
         },
       ],
       shop: {
@@ -240,15 +229,15 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
         },
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
         },
       ],
       shop: {
-        name: "Apple inc.",
+        name: "Apple Inc.",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
@@ -271,15 +260,15 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1",
+          url: "https://cdn.justluxe.com/articles/images/news/15911953627220.jpg",
         },
         {
           public_id: "test",
-          url: "https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1",
+          url: "https://cdn.justluxe.com/articles/images/news/15911953627220.jpg",
         },
       ],
       shop: {
-        name: "Shahriar Watch House",
+        name: "Rollex",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
@@ -302,15 +291,15 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://mirzacdns3.s3.ap-south-1.amazonaws.com/cache/catalog/RLV0015/2-800x800.jpg",
+          url: "https://sneakernews.com/wp-content/uploads/2021/06/jordan-point-lane-black-infrared-cz4166-006.jpg",
         },
         {
           public_id: "test",
-          url: "https://mirzacdns3.s3.ap-south-1.amazonaws.com/cache/catalog/RLV0015/2-800x800.jpg",
+          url: "https://sneakernews.com/wp-content/uploads/2021/06/jordan-point-lane-black-infrared-cz4166-006.jpg",
         },
       ],
       shop: {
-        name: "Alisha Shoes Mart",
+        name: "Nike",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
@@ -332,7 +321,7 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.startech.com.bd/image/cache/catalog/headphone/havit/h763d/h763d-02-500x500.jpg",
+          url: "https://9to5mac.com/wp-content/uploads/sites/6/2020/12/AirPods-Max-black.jpg",
         },
         {
           public_id: "test",
@@ -340,7 +329,7 @@ export const navItems = [
         },
       ],
       shop: {
-        name: "Asus Ltd",
+        name: "Apple Inc.",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
@@ -371,15 +360,15 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1",
+          url: "https://cdn.justluxe.com/articles/images/news/15911953627220.jpg",
         },
         {
           public_id: "test",
-          url: "https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1",
+          url: "https://cdn.justluxe.com/articles/images/news/15911953627220.jpg",
         },
       ],
       shop: {
-        name: "Shahriar Watch House",
+        name: "Rollex",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
@@ -400,7 +389,7 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.startech.com.bd/image/cache/catalog/headphone/havit/h763d/h763d-02-500x500.jpg",
+          url: "https://9to5mac.com/wp-content/uploads/sites/6/2020/12/AirPods-Max-black.jpg",
         },
         {
           public_id: "test",
@@ -408,7 +397,7 @@ export const navItems = [
         },
       ],
       shop: {
-        name: "Asus Ltd",
+        name: "Apple Inc.",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
@@ -439,11 +428,11 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg",
+          url: "https://xn----8sb1bezcm.xn--p1ai/resources/01/500/400/76/16/dd5f3b4e-2a06-4b1c-be4f-1c5b60c58b62.jpg",
         },
         {
           public_id: "test",
-          url: "https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg",
+          url: "https://xn----8sb1bezcm.xn--p1ai/resources/01/500/400/76/16/dd5f3b4e-2a06-4b1c-be4f-1c5b60c58b62.jpg",
         },
       ],
       shop: {
@@ -468,7 +457,7 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.startech.com.bd/image/cache/catalog/headphone/havit/h763d/h763d-02-500x500.jpg",
+          url: "https://9to5mac.com/wp-content/uploads/sites/6/2020/12/AirPods-Max-black.jpg",
         },
         {
           public_id: "test",
@@ -476,7 +465,7 @@ export const navItems = [
         },
       ],
       shop: {
-        name: "Asus Ltd",
+        name: "Apple Inc.",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",

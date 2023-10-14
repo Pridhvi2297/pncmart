@@ -6,7 +6,7 @@ const ExclusiveDealsCard = ({active}) => {
     <div className={`bg-white rounded-lg ${active ? "unset" : "mb-12"} lg:flex p-2`}>
       <div className="lg:w-1/2 m-auto">
         <img
-          src="https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg"
+          src="https://xn----8sb1bezcm.xn--p1ai/resources/01/500/400/76/16/dd5f3b4e-2a06-4b1c-be4f-1c5b60c58b62.jpg"
           alt=""
           className="w-full"
         />

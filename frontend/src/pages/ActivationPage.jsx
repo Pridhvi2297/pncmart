@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { server } from "../server";
 
 const ActivationPage = () => {
   const { activation_token } = useParams();
   const [error, setError] = useState(false);
+  const navigate = useNavigate(); // Import useNavigate from react-router-dom
 
   useEffect(() => {
     if (activation_token) {
@@ -15,13 +16,18 @@ const ActivationPage = () => {
             activation_token,
           });
           console.log(response.data);
+
+          // Add a delay of 5 seconds (5000 milliseconds) before redirecting to the login page
+          setTimeout(() => {
+            navigate("/"); // Redirect to the Home page
+          }, 5000);
         } catch (err) {
           setError(true);
         }
       };
       sendRequest();
     }
-  }, []);
+  }, [activation_token, navigate]); // Include activation_token and navigate in the dependency array
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-50">

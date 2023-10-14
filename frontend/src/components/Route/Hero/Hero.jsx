@@ -11,7 +11,7 @@ const Hero = () => {
     {
       banner:
         "https://storage-asset.msi.com/us/picture/banner/banner_16728874060153c2d718721b32025a2b786f0bca6f.jpeg",
-      title: "Best Collection for Laptops",
+      title: "Best Collection for Computers",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, assumenda? Quisquam itaque exercitationem labore vel, dolore quidem asperiores, laudantium temporibus soluta optio consequatur aliquam deserunt officia. Dolorum saepe nulla provident.",
     },
