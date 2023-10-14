@@ -6,6 +6,7 @@ import ProductsPage from "./pages/ProductsPage";
 import BestSellersPage from "./pages/BestSellersPage";
 import TodaysDealPage from "./pages/TodaysDealPage";
 import FAQPage from './pages/FAQPage';
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 
 
 export {
@@ -17,4 +18,5 @@ export {
     BestSellersPage,
     TodaysDealPage,
     FAQPage,
+    ProductDetailsPage,
 };

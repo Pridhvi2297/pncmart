@@ -168,11 +168,11 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
+          url: "https://ecommerce.datablitz.com.ph/cdn/shop/files/0194253297352.jpg",
         },
         {
           public_id: "test",
-          url: "https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
+          url: "https://ecommerce.datablitz.com.ph/cdn/shop/files/0194253297352.jpg",
         },
       ],
       shop: {
@@ -228,11 +228,11 @@ export const navItems = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
+          url: "https://ecommerce.datablitz.com.ph/cdn/shop/files/0194253297352.jpg",
         },
         {
           public_id: "test",
-          url: "https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
+          url: "https://ecommerce.datablitz.com.ph/cdn/shop/files/0194253297352.jpg",
         },
       ],
       shop: {
