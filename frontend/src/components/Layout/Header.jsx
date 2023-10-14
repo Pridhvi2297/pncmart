@@ -120,7 +120,9 @@ const Header = ({ activeHeading }) => {
               </div>
             ) : null}
           </div>
-          <div className="relative cursor-pointerflex items-center space-x-5 text-white">
+          <div className="relative cursor-pointerflex items-center space-x-5 text-white"
+          onClick={() => setOpenWishlist(true)}
+          >
             <AiOutlineHeart size={30} />
             <span className="absolute top-0 right-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
               0
