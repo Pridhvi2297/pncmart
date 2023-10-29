@@ -7,6 +7,10 @@ import BestSellersPage from "./pages/BestSellersPage";
 import TodaysDealPage from "./pages/TodaysDealPage";
 import FAQPage from './pages/FAQPage';
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import ProfilePage from './pages/ProfilePage';
+import CheckoutPage from './pages/CheckoutPage';
+import SellerCreatePage from './pages/SellerCreatePage';
+import SellerActivationPage from "./pages/SellerActivationPage"
 
 
 export {
@@ -19,4 +23,8 @@ export {
     TodaysDealPage,
     FAQPage,
     ProductDetailsPage,
+    ProfilePage,
+    CheckoutPage,
+    SellerCreatePage,
+    SellerActivationPage,
 };

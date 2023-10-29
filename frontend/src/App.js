@@ -11,13 +11,21 @@ import {
   TodaysDealPage,
   FAQPage,
   ProductDetailsPage,
+  ProfilePage,
+  CheckoutPage,
+  SellerCreatePage,
+  SellerActivationPage
 } from "./Routes.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Store from "./redux/store";
 import { loadUser } from "./redux/actions/user";
+import { useSelector } from "react-redux";
+import ProtectedRoute from "./ProtectedRoute";
 
 const App = () => {
+  const { loading, isAuthenticated } = useSelector((state) => state.user);
+
   useEffect(() => {
     Store.dispatch(loadUser());
   }, []);
@@ -33,11 +41,32 @@ const App = () => {
             path="/activation/:activation_token"
             element={<ActivationPage />}
           />
+          <Route
+            path="/seller/activation/:activation_token"
+            element={<SellerActivationPage />}
+          />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/product/:name" element={<ProductDetailsPage />} />
           <Route path="/best-sellers" element={<BestSellersPage />} />
           <Route path="/todaysDeals" element={<TodaysDealPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <CheckoutPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/shop-signup" element={<SellerCreatePage />} />
         </Routes>
 
         <ToastContainer
