@@ -1,0 +1,24 @@
+/* ProductDetails.css */
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    transition: transform 0.5s;
+  }
+  
+  .image-container:hover img {
+    transform: scale(1.1); /* Increase the scale for zoom effect */
+  }
+  
+  .image-thumbnail {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .selected img {
+    border: 2px solid #007bff; /* Add a border to the selected image */
+  }
+  

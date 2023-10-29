@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../../styles/styles";
-import {
-  AiFillHeart,
-  AiOutlineHeart,
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
-import { FaRegEnvelope } from "react-icons/fa";
+import { Star, ShoppingCart, Heart, Mail } from "react-feather"; // New icons
+import "./ProductDetails.css";
 
 const ProductDetails = ({ data }) => {
   const [count, setCount] = useState(1);
-  const [click, setClick] = useState(false);
+  const [isWishlistActive, setWishlistActive] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [activeTab, setActiveTab] = useState(1);
   const navigate = useNavigate();
+
+  const handleWishlistToggle = () => {
+    setWishlistActive(!isWishlistActive);
+  };
 
   const decrementCount = () => {
     if (count > 1) {
@@ -35,109 +36,128 @@ const ProductDetails = ({ data }) => {
           <div className="w-full py-5">
             <div className="block w-full 800px:flex">
               <div className="w-full 800px:w-[50%]">
-                <img
-                  src={data.image_Url[selectedImage].url}
-                  alt=""
-                  className="w-[80%]"
-                />
+                <div
+                  className="image-container"
+                  onMouseOver={() => setSelectedImage(0)}
+                  onMouseOut={() => setSelectedImage(1)}
+                >
+                  <img
+                    src={data.image_Url[selectedImage].url}
+                    alt=""
+                    className="w-[80%]"
+                  />
+                </div>
                 <div className="w-full flex">
-                  <div
-                    className={`${
-                      selectedImage === 0 ? "border" : ""
-                    } cursor-pointer`}
-                  >
-                    <img
-                      src={data?.image_Url[0].url}
-                      alt=""
-                      className="h-[200px] w-[200px]"
-                      onClick={() => setSelectedImage(0)} // Updated function name
-                    />
-                  </div>
-                  <div
-                    className={`${
-                      selectedImage === 1 ? "border" : ""
-                    } cursor-pointer`}
-                  >
-                    <img
-                      src={data?.image_Url[1].url}
-                      alt=""
-                      className="h-[200px] w-[200px]"
-                      onClick={() => setSelectedImage(1)} // Updated function name
-                    />
-                  </div>
+                  {data.image_Url.map((image, index) => (
+                    <div
+                      className={`image-thumbnail ${
+                        selectedImage === index ? "selected" : ""
+                      }`}
+                      key={index}
+                      onMouseOver={() => setSelectedImage(index)}
+                    >
+                      <img
+                        src={image.url}
+                        alt=""
+                        className="h-[200px] w-[200px]"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="w-full 800px:w-[50%] pt-5">
-                <h1 className={`${styles.productTitle}`}>{data.name}</h1>
-                <p>{data.description}</p>
-                <div className="flex pt-3">
-                  <h4 className={`${styles.productDiscountPrice}`}>
+                <h1 className="text-4xl font-bold mb-3 text-blue-700">
+                  {data.name}
+                </h1>
+                <p className="text-gray-500 text-lg mb-4">{data.description}</p>
+                <div className="flex items-center mb-4">
+                  <h4 className="text-3xl font-semibold mr-4 text-green-600">
                     $ {data.discount_price}
                   </h4>
-                  <h3 className={`${styles.price}`}>
-                    {data.price ? data.price + "$" : null}
-                  </h3>
+                  {data.price && (
+                    <span className="text-gray-400 text-lg">
+                      $ {data.price}
+                    </span>
+                  )}
                 </div>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 mb-4">
                   <button
-                    className="text-white bg-teal-500 rounded-full px-4 py-2 hover:bg-teal-600 transition duration-300 ease-in-out"
+                    className="text-white bg-gray-500 rounded-full px-4 py-2 hover:bg-gray-600 transition duration-300 ease-in-out"
                     onClick={decrementCount}
                   >
-                    -
+                    <span className="text-2xl">-</span>
                   </button>
-                  <span className="text-gray-700 font-semibold">{count}</span>
+                  <span className="text-gray-700 font-semibold text-2xl">
+                    {count}
+                  </span>
                   <button
-                    className="text-white bg-teal-500 rounded-full px-4 py-2 hover:bg-teal-600 transition duration-300 ease-in-out"
+                    className="text-white bg-gray-500 rounded-full px-4 py-2 hover:bg-gray-600 transition duration-300 ease-in-out"
                     onClick={incrementCount}
                   >
-                    +
+                    <span className="text-2xl">+</span>
                   </button>
                 </div>
-                <div className="flex items-center space-x-4">
+
+                <div className="flex items-center space-x-4 mb-6">
                   <div
-                    className="flex items-center space-x-2 cursor-pointer"
-                    onClick={() => setClick(!click)}
+                    className={`flex items-center space-x-2 cursor-pointer ${
+                      isWishlistActive ? "text-blue-600" : "text-gray-500"
+                    }`}
+                    onClick={() => alert("Added to Wishlist!")}
                   >
-                    {click ? (
-                      <AiFillHeart size={24} color="#f44336" />
+                    {isWishlistActive ? (
+                      <Heart size={24} color="blue" />
                     ) : (
-                      <AiOutlineHeart size={24} />
+                      <Heart size={24} color="gray" />
                     )}
-                    <span className="text-gray-700">
-                      {click ? "Added to Wishlist" : "Add to Wishlist"}
+                    <span>
+                      {isWishlistActive
+                        ? "Added to Favorites"
+                        : "Add to Favorites"}
                     </span>
                   </div>
                   <button
-                    className="flex items-center space-x-2 text-white bg-teal-500 rounded-full px-4 py-2 hover:bg-teal-600 transition duration-300 ease-in-out"
+                    className="flex items-center space-x-2 text-white bg-gray-500 rounded-full px-4 py-2 hover:bg-gray-600 transition duration-300 ease-in-out"
                     onClick={() => alert("Added to Cart!")}
                   >
-                    <AiOutlineShoppingCart size={28} />
+                    <ShoppingCart size={24} /> {/* Change the icon */}
                     <span>Add to Cart</span>
                   </button>
                 </div>
-                <div className="border-t flex mt-6 pt-8 text-center items-center text-gray-700">
-                  <img
-                    src={data.shop.shop_avatar.url}
-                    alt=""
-                    className="w-[50px] h-[50px] rounded-full mr-2"
-                  />
-                  <div className={styles.sellerInfo}>
-                    <h3 className="pb-1 pt-1">{data.shop.name}</h3>
-                    <h5 className="pb-3 text-[15px]">
-                      ({data.shop.ratings}) Ratings
-                    </h5>
+
+                <div className="border-t border-gray-300 flex items-center py-4">
+                  <div className="flex items-center">
+                    <img
+                      src={data.shop.shop_avatar.url}
+                      alt={data.shop.name}
+                      className="w-12 h-12 rounded-full mr-3"
+                    />
+                    <div>
+                      <h3 className="text-lg font-semibold">
+                        {data.shop.name}
+                      </h3>
+                      <div className="flex items-center text-gray-500 text-sm">
+                        <Star size={16} className="mr-1" />
+                        <span>({data.shop.ratings}) Ratings</span>
+                      </div>
+                    </div>
                   </div>
                   <button
-                    className="text-teal-500 hover:underline flex items-center"
                     onClick={handleMessageSubmit}
+                    className="text-blue-600 hover:underline flex items-center ml-auto"
                   >
-                    <FaRegEnvelope className="mr-2" /> Contact Seller
+                    <Mail size={18} className="mr-2" />
+                    Contact Seller
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <ProductDetailsInfo data={data} />
+          <ProductDetailsInfo
+            data={data}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
           <br />
         </div>
       ) : null}
@@ -145,46 +165,30 @@ const ProductDetails = ({ data }) => {
   );
 };
 
-const ProductDetailsInfo = ({ data }) => {
-  const [active, setActive] = useState(1);
+const ProductDetailsInfo = ({ data, activeTab, setActiveTab }) => {
   return (
     <div className="bg-[#f5f6fb] px-3 800px:px-10 py-2 rounded">
       <div className="w-full flex justify-between border-b pt-10 pb-2">
-        <div className="relative">
-          <h5
-            className="text-black text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
-            onClick={() => setActive(1)}
-          >
-            About this Item
-          </h5>
-          {active === 1 ? (
-            <div className={`${styles.active_indicator}`} />
-          ) : null}
-        </div>
-        <div className="relative">
-          <h5
-            className="text-black text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
-            onClick={() => setActive(2)}
-          >
-            Product Reviews
-          </h5>
-          {active === 2 ? (
-            <div className={`${styles.active_indicator}`} />
-          ) : null}
-        </div>
-        <div className="relative">
-          <h5
-            className="text-black text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
-            onClick={() => setActive(3)}
-          >
-            Seller Information
-          </h5>
-          {active === 3 ? (
-            <div className={`${styles.active_indicator}`} />
-          ) : null}
-        </div>
+        <Tab
+          title="About this Item"
+          index={1}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+        <Tab
+          title="Product Reviews"
+          index={2}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+        <Tab
+          title="Seller Information"
+          index={3}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
       </div>
-      {active === 1 ? (
+      {activeTab === 1 ? (
         <>
           <p className="py-2 text-[18px] leading-8 pb-10 whitespace-pre-line">
             SUPERCHARGED BY M2 PRO OR M2 MAX — Take on demanding projects with
@@ -205,8 +209,7 @@ const ProductDetailsInfo = ({ data }) => {
             system with Spatial Audio.
           </p>
           <h1 className="text-black text-[24px] font-bold">
-            {" "}
-            What is the box?
+            What is in the box?
           </h1>
           <p>
             14-inch MacBook Pro USB-C to MagSafe 3 Cable (2 m) 67W USB-C Power
@@ -215,13 +218,13 @@ const ProductDetailsInfo = ({ data }) => {
         </>
       ) : null}
 
-      {active === 2 ? (
+      {activeTab === 2 ? (
         <div className="w-full justify-center min-h-[40vh] flex items-center">
           <p>No Reviews yet</p>
         </div>
       ) : null}
 
-      {active === 3 ? (
+      {activeTab === 3 ? (
         <div className="w-full block 800px:flex p-5">
           <div className="w-full 800px:w-[50%]">
             <div className="flex item-center">
@@ -240,30 +243,30 @@ const ProductDetailsInfo = ({ data }) => {
               </div>
             </div>
             <p className="pt-2">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Temporibus distinctio molestias nesciunt illum, odio optio velit
-                ratione id totam sunt reiciendis eum dolores quam consectetur,
-                soluta itaque voluptas quis. Consectetur?
-              </p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Temporibus distinctio molestias nesciunt illum, odio optio velit
+              ratione id totam sunt reiciendis eum dolores quam consectetur,
+              soluta itaque voluptas quis. Consectetur?
+            </p>
           </div>
           <div className="w-full 800px:w-[50%] mt-5 800px:mt-0 800px:flex flex-col items-end">
             <div className="text-left">
-                <h5 className="font-[600]">
-                    Joined On: <span className="font-[500]">14 March, 2023</span>
-                </h5>
-                <h5 className="font-[600] pt-3">
-                    Total Products: <span className="font-[500]">1,42,023</span>
-                </h5>
-                <h5 className="font-[600] pt-3">
-                    Total Reviews: <span className="font-[500]">4,223</span>
-                </h5>
-                <Link to="/">
-                <div className={`${styles.button} !rounded-[4px] !h-[39.5px] mt-3`}>
-                    <h4 className="text-white">
-                        Visit Shop
-                    </h4>
+              <h5 className="font-[600]">
+                Joined On: <span className="font-[500]">14 March, 2023</span>
+              </h5>
+              <h5 className="font-[600] pt-3">
+                Total Products: <span className="font-[500]">1,42,023</span>
+              </h5>
+              <h5 className="font-[600] pt-3">
+                Total Reviews: <span className="font-[500]">4,223</span>
+              </h5>
+              <Link to="/">
+                <div
+                  className={`${styles.button} !rounded-[4px] !h-[39.5px] mt-3`}
+                >
+                  <h4 className="text-white">Visit Shop</h4>
                 </div>
-                </Link>
+              </Link>
             </div>
           </div>
         </div>
@@ -271,4 +274,23 @@ const ProductDetailsInfo = ({ data }) => {
     </div>
   );
 };
+
+const Tab = ({ title, index, activeTab, setActiveTab }) => {
+  return (
+    <div className="relative">
+      <h5
+        className={`text-black text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px] ${
+          activeTab === index ? styles.activeTab : ""
+        }`}
+        onClick={() => setActiveTab(index)}
+      >
+        {title}
+      </h5>
+      {activeTab === index ? (
+        <div className={`${styles.active_indicator}`} />
+      ) : null}
+    </div>
+  );
+};
+
 export default ProductDetails;
