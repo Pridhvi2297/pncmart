@@ -9,9 +9,6 @@ import FAQPage from '../pages/FAQPage';
 import ProductDetailsPage from "../pages/ProductDetailsPage";
 import ProfilePage from '../pages/ProfilePage';
 import CheckoutPage from '../pages/CheckoutPage';
-import SellerCreatePage from '../pages/SellerCreatePage';
-import SellerActivationPage from "../pages/SellerActivationPage"
-import SellerLoginPage from "../pages/SellerLoginPage";
 
 
 export {
@@ -26,7 +23,4 @@ export {
     ProductDetailsPage,
     ProfilePage,
     CheckoutPage,
-    SellerCreatePage,
-    SellerActivationPage,
-    SellerLoginPage,
 };
