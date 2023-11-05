@@ -200,7 +200,7 @@ const SellerCreate = () => {
         </form>
 
         <div className="text-center text-sm font-medium text-gray-800">
-          <span>Already have an account?</span>
+          <span>Already have a Seller?</span>
           <Link to="/shop-signin" className="text-[#4a6025] hover:underline cursor-pointer mt-2">
             Sign in
           </Link>

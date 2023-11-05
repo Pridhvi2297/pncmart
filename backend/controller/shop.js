@@ -7,9 +7,10 @@ const sendToken = require("../utils/jwtToken");
 const sendMail = require("../utils/sendMail");
 const Shop = require("../model/shop");
 const { upload } = require("../multer");
-const { isAuthenticated } = require("../middleware/auth");
+const { isAuthenticated, isSeller } = require("../middleware/auth");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
+const sendSellerToken = require("../utils/sellerToken");
 
 router.post("/create-shop", upload.single("file"), async (req, res, next) => {
     try {
@@ -64,7 +65,7 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
 
 const createActivationToken = (seller) => {
   return jwt.sign(seller, process.env.ACTIVATION_SECRET, {
-    expiresIn: "1h",
+    expiresIn: "5m",
   });
 };
 
@@ -101,7 +102,63 @@ router.post(
         phoneNumber,
       });
 
-      sendToken(seller, 201, res);
+      sendSellerToken(seller, 201, res);
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+
+router.post(
+  "/login-shop",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const { email, password } = req.body;
+
+      if (!email || !password) {
+        return next(
+          new ErrorHandler("Please provide all the required details", 400)
+        );
+      }
+
+      const user = await Shop.findOne({ email }).select("+password");
+
+      if (!user) {
+        return next(new ErrorHandler("User doesnt exists", 400));
+      }
+
+      const isPasswordValid = await user.comparePassword(password);
+
+      if (!isPasswordValid) {
+        return next(
+          new ErrorHandler("Please provide correct information", 400)
+        );
+      }
+
+      sendSellerToken(user, 201, res);
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+
+router.get(
+  "/getSeller",
+  isSeller,
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const seller = await Shop.findById(req.seller._id);
+
+      if (!seller) {
+        return next(new ErrorHandler("User doesn't exists", 400));
+      }
+
+      res.status(200).json({
+        success: true,
+        seller,
+      });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }

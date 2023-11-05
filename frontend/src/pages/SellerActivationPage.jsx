@@ -6,7 +6,7 @@ import { server } from "../server";
 const SellerActivationPage = () => {
   const { activation_token } = useParams();
   const [error, setError] = useState(false);
-  const navigate = useNavigate(); // Import useNavigate from react-router-dom
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (activation_token) {
@@ -27,7 +27,7 @@ const SellerActivationPage = () => {
       };
       sendRequest();
     }
-  }, [activation_token, navigate]); // Include activation_token and navigate in the dependency array
+  }, [activation_token, navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-50">

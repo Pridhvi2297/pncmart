@@ -11,7 +11,7 @@ const LoginPage = () => {
     if (isAuthenticated === true) {
       navigate("/");
     }
-  }, [isAuthenticated]); // Include isAuthenticated as a dependency
+  }, [isAuthenticated]);
 
   return (
     <div>
