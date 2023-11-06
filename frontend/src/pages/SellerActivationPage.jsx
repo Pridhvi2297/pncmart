@@ -3,16 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { server } from "../server";
 
-const ActivationPage = () => {
+const SellerActivationPage = () => {
   const { activation_token } = useParams();
   const [error, setError] = useState(false);
-  const navigate = useNavigate(); // Import useNavigate from react-router-dom
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (activation_token) {
       const sendRequest = async () => {
         try {
-          const response = await axios.post(`${server}/user/activation`, {
+          const response = await axios.post(`${server}/shop/activation`, {
             activation_token,
           });
           console.log(response.data);
@@ -27,7 +27,7 @@ const ActivationPage = () => {
       };
       sendRequest();
     }
-  }, []);
+  }, [activation_token, navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-50">
@@ -55,4 +55,4 @@ const ActivationPage = () => {
   );
 };
 
-export default ActivationPage;
+export default SellerActivationPage;

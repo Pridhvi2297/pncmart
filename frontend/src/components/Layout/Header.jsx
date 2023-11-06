@@ -157,7 +157,7 @@ const Header = ({ activeHeading }) => {
             )}
           </div>
           <div className="bg-gray-400 py-3 px-4 rounded-md">
-            <Link to="/shop-signup">
+            <Link to="/shop-create">
               <h1 className="text-white flex items-center">
                 Sell on Pnc Mart <IoIosArrowForward className="ml-1" />
               </h1>
@@ -284,7 +284,7 @@ const Header = ({ activeHeading }) => {
               <Navbar active={activeHeading} />
 
           <div className="bg-gray-700 py-3 px-4 rounded-md">
-            <Link to="/shop-signup">
+            <Link to="/shop-create">
               <h1 className="text-white flex items-center">
                 Sell on Pnc Mart <IoIosArrowForward className="ml-1" />
               </h1>
